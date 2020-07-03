@@ -1,18 +1,18 @@
 <?php include_once 'apps/autoload.php'; ?>
 <?php 
 
-	$student = new Student;
+	$teacher = new Teacher;
 
 
 	/**
 	 * GET URL DATA FROM ID
 	 */
-	if ( isset($_GET['id']) ) {
-		$id = $_GET['id'];
+	// if ( isset($_GET['id']) ) {
+	// 	$id = $_GET['id'];
 
-		$delete = $student -> deleteSingleStudent($id);
+	// 	$delete = $student -> deleteSingleStudent($id);
 
-	}
+	// }
 
  ?>
 
@@ -31,14 +31,14 @@
 	
 
 	<div class="wrap-table">
-		<?php 
+		<!-- <?php 
 
 			if ( isset($delete) ) {
 				echo $delete;
 			}
 
-		 ?>
-		<a class="btn btn-primary" href="index.php">Add new student</a>
+		 ?> -->
+		<a class="btn btn-primary" href="teach.php">Add new Teacher</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>All Data</h2>
@@ -49,7 +49,6 @@
 							<th>Name</th>
 							<th>Email</th>
 							<th>Cell</th>
-							<th>uname</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -57,23 +56,22 @@
 							
 						<?php 
 
-							$all_student = $student -> studentAllDataShow();
+							$all_teacher = $teacher -> teacherAllDataShow();
 
 							$id = 1;
-							while($stu = $all_student -> fetch_assoc()):
+							while($teach = $all_teacher -> fetch_assoc()):
 
 						 ?>
 
 						<tr>
 							<td><?php echo $id; $id++ ?></td>
-							<td><?php echo $stu['name']; ?></td>
-							<td><?php echo $stu['email']; ?></td>
-							<td><?php echo $stu['cell']; ?></td>
-							<td><?php echo $stu['uname']; ?></td>
+							<td><?php echo $teach['name']; ?></td>
+							<td><?php echo $teach['email']; ?></td>
+							<td><?php echo $teach['cell']; ?></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="view.php?id=<?php echo $stu['id']; ?>">View</a>
-								<a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $stu['id']; ?>">Edit</a>
-								<a id="delete" class="btn btn-sm btn-danger" href="?id=<?php echo $stu['id']; ?>">Delete</a>
+								<a class="btn btn-sm btn-info" href="teach_view.php?id=<?php echo $teach['id']; ?>">View</a>
+								<a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $teach['id']; ?>">Edit</a>
+								<a id="delete" class="btn btn-sm btn-danger" href="?id=<?php echo $teach['id']; ?>">Delete</a>
 							</td>
 						</tr>
 						
