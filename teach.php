@@ -2,9 +2,9 @@
 <?php 
 
 	/**
-	 * Create object Student class
+	 * Create object Teacher class
 	 */
-	$stu = new Student;
+	$tach = new Teacher;
 
 	$oldFunction = new Management;
 
@@ -27,24 +27,23 @@
 	<?php 
 
 		/**
-		 * Student Form Setup
+		 * Teacher Form Setup
 		 */
 		if ( isset($_POST['add']) ) {
 			// get form values
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$cell = $_POST['cell'];
-			$uname = $_POST['uname'];
 
 
 			/**
 			 * Form Validation
 			 */
-			if (empty($name) || empty($email) || empty($cell) || empty($uname)) {
+			if (empty($name) || empty($email) || empty($cell)) {
 				$mess = "<p class=\"alert alert-danger\">All fields are required !<button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 			}else {
 
-				$mess = $stu -> studentRegistration($name, $email, $cell, $uname);
+				$mess = $tach -> teacherRegistration($name, $email, $cell);
 
 			}
 
@@ -57,8 +56,7 @@
 	
 
 	<div class="wrap ">
-		<a class="btn btn-primary" href="table.php">All Students</a>
-		<a class="btn btn-primary" href="teach.php">Add Teacher</a>
+		<a class="btn btn-primary" href="table.php">All Teacher</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign UP</h2>
@@ -81,10 +79,6 @@
 					<div class="form-group">
 						<label for="">Cell</label>
 						<input name="cell" class="form-control" value="<?php echo $oldFunction -> old('cell'); ?>"  type="text">
-					</div>
-					<div class="form-group">
-						<label for="">Username</label>
-						<input name="uname" class="form-control" value="<?php echo $oldFunction -> old('uname'); ?>" type="text">
 					</div>
 					<div class="form-group">
 						<input name="add" class="btn btn-primary" type="submit" value="Sign Up">
