@@ -2,11 +2,16 @@
 <?php 
 
 	/**
-	 * Create object Teacher class
+	 * 
 	 */
-	$tach = new Teacher;
+	$teach = new Teacher;
 
-	$oldFunction = new Management;
+	if ( isset($_GET['id']) ) {
+		$id = $_GET['id'];
+
+		$data = $teach -> singleTeacherShow($id);
+		$single_data = $data -> fetch_assoc();
+	}
 
 
  ?>
@@ -27,9 +32,9 @@
 	<?php 
 
 		/**
-		 * Teacher Form Setup
+		 * Student Form Setup
 		 */
-		if ( isset($_POST['add']) ) {
+		if ( isset($_POST['update']) ) {
 			// get form values
 			$name = $_POST['name'];
 			$email = $_POST['email'];
@@ -43,7 +48,7 @@
 				$mess = "<p class=\"alert alert-danger\">All fields are required !<button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 			}else {
 
-				$mess = $tach -> teacherRegistration($name, $email, $cell);
+				$mess = $teach -> teacherDataUpdate($name, $email, $cell, $id);
 
 			}
 
@@ -56,8 +61,7 @@
 	
 
 	<div class="wrap ">
-		<a class="btn btn-primary" href="teach_table.php">All Teacher</a>
-		<a class="btn btn-primary" href="index.php">Add Student</a>
+		<a class="btn btn-primary" href="teach_table.php">All Teachers</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign UP</h2>
@@ -68,21 +72,21 @@
 					}
 
 				 ?>
-				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method='POST'>
+				<form action="<?php echo $_SERVER['PHP_SELF'];?>?id=<?php echo $id; ?>" method='POST'>
 					<div class="form-group">
 						<label for="">Name</label>
-						<input name="name" class="form-control" value="<?php echo $oldFunction -> old('name'); ?>" type="text">
+						<input name="name" class="form-control" value="<?php echo $single_data['name']; ?>" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input name="email" class="form-control" value="<?php echo $oldFunction -> old('email'); ?>" type="text">
+						<input name="email" class="form-control" value="<?php echo $single_data['email']; ?>" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input name="cell" class="form-control" value="<?php echo $oldFunction -> old('cell'); ?>"  type="text">
+						<input name="cell" class="form-control" value="<?php echo $single_data['cell']; ?>"  type="text">
 					</div>
 					<div class="form-group">
-						<input name="add" class="btn btn-primary" type="submit" value="Sign Up">
+						<input name="update" class="btn btn-primary" type="submit" value="Update Data">
 					</div>
 				</form>
 			</div>

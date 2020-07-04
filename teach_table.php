@@ -7,12 +7,12 @@
 	/**
 	 * GET URL DATA FROM ID
 	 */
-	// if ( isset($_GET['id']) ) {
-	// 	$id = $_GET['id'];
+	if ( isset($_GET['id']) ) {
+		$id = $_GET['id'];
 
-	// 	$delete = $student -> deleteSingleStudent($id);
+		$delete = $teacher -> deleteSingleTeacher($id);
 
-	// }
+	}
 
  ?>
 
@@ -31,13 +31,13 @@
 	
 
 	<div class="wrap-table">
-		<!-- <?php 
+		<?php 
 
 			if ( isset($delete) ) {
 				echo $delete;
 			}
 
-		 ?> -->
+		 ?>
 		<a class="btn btn-primary" href="teach.php">Add new Teacher</a>
 		<div class="card shadow">
 			<div class="card-body">
@@ -70,7 +70,7 @@
 							<td><?php echo $teach['cell']; ?></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="teach_view.php?id=<?php echo $teach['id']; ?>">View</a>
-								<a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $teach['id']; ?>">Edit</a>
+								<a class="btn btn-sm btn-warning" href="teach_edit.php?id=<?php echo $teach['id']; ?>">Edit</a>
 								<a id="delete" class="btn btn-sm btn-danger" href="?id=<?php echo $teach['id']; ?>">Delete</a>
 							</td>
 						</tr>

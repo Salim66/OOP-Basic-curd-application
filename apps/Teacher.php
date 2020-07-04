@@ -35,15 +35,15 @@
 		// /**
 		//  * Teacher data delete by id
 		//  */
-		// public function deleteSingleStudent($id)
-		// {
-		// 	$sql = "DELETE FROM students WHERE id='$id'";
-		// 	$data = parent::dbConnection() -> query($sql);
+		public function deleteSingleTeacher($id)
+		{
+			$sql = "DELETE FROM teachers WHERE id='$id'";
+			$data = parent::dbConnection() -> query($sql);
 
-		// 	if ( $data ) {
-		// 		return "<p class=\"alert alert-success\">Data deleted successfull !<button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
-		// 	}
-		// }
+			if ( $data ) {
+				return "<p class=\"alert alert-success\">Data deleted successfull !<button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+			}
+		}
 
 
 
@@ -57,6 +57,22 @@
 			return $data;
 
 		}
+
+
+		/**
+		 * Update Teacher Data by id
+		 */
+		public function teacherDataUpdate($name, $email, $cell, $id)
+		{
+			$sql = "UPDATE teachers SET name='$name', email='$email', cell='$cell' WHERE id='$id'";
+			$data = parent::dbConnection() -> query($sql);
+
+
+			if ( $data ) {
+				return "<p class=\"alert alert-success\">Update data successfull !<button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+			}
+		}
+
 
 
 

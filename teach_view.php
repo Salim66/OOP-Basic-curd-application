@@ -27,7 +27,7 @@
 	
 	
 	<div style="width: 450px;" class="wrap-table shadow">
-		<a class="btn btn-info" href="table.php">Back</a>
+		<a class="btn btn-info" href="teach_table.php">Back</a>
 		<div class="card">
 			<div class="card-body"> 
 				<table class="table">
