@@ -58,6 +58,7 @@
 	<div class="wrap ">
 		<a class="btn btn-primary" href="teach_table.php">All Teacher</a>
 		<a class="btn btn-primary" href="index.php">Add Student</a>
+		<a class="btn btn-primary" href="staff_index.php">Add Staff</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign UP</h2>

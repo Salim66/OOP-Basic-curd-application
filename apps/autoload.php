@@ -8,6 +8,7 @@
 	include_once 'Management.php';
 	include_once 'Student.php';
 	include_once 'Teacher.php';
+	include_once 'Staff.php';
 
 
 

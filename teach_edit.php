@@ -32,7 +32,7 @@
 	<?php 
 
 		/**
-		 * Student Form Setup
+		 * Teacher Form Setup
 		 */
 		if ( isset($_POST['update']) ) {
 			// get form values
